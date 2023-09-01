@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEditor;
 using UnityEngine;
@@ -39,7 +40,7 @@ public class MeshGridGenerator : MonoBehaviour
                 position = bounds.center
             }
         };
-
+        var spheres = new List<GameObject>();
         for (var x = 0; x < gridSize.x; x++)
         {
             for (var y = 0; y < gridSize.y; y++)
@@ -51,19 +52,27 @@ public class MeshGridGenerator : MonoBehaviour
                     // ReSharper disable once InvertIf
                     if (IsPointInsideMesh(cellCenter, mesh))
                     {
-                        var sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                        sphere.transform.position = cellCenter;
-                        sphere.transform.localScale = cellSize * 0.9f; // Slightly smaller than cellSize
-                        sphere.transform.parent = collection.transform;
-
-                        Destroy(sphere.GetComponent<Collider>());
+                        spheres.Add(CreateSphere(cellCenter, cellSize * 0.9f));
                     }
                 }
             }
         }
 
+        foreach (var sphere in spheres)
+        {
+            sphere.transform.parent = collection.transform;
+        }
         PrefabUtility.SaveAsPrefabAsset(collection, "Assets/Prefabs/" + prefabName + ".prefab");
         Destroy(collection);
+    }
+
+    private GameObject CreateSphere(Vector3 position, Vector3 scale)
+    {
+        var sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        sphere.transform.position = position;
+        sphere.transform.localScale = scale;
+        Destroy(sphere.GetComponent<MeshRenderer>());
+        return sphere;
     }
 
     private static bool IsPointInsideMesh(Vector3 point, Mesh mesh)
