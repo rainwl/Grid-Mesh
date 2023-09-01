@@ -8,14 +8,19 @@ using Debug = UnityEngine.Debug;
 
 public class MeshGridGenerator : MonoBehaviour
 {
+    #region Fields
+
     public MeshFilter meshFilter;
     public Vector3 cellSize = new Vector3(0.2f, 0.2f, 0.2f);
     public string prefabName = "null";
 
+    #endregion
+    
     private void Start()
     {
         var stopwatch = new Stopwatch();
         stopwatch.Start();
+        
         var mesh = meshFilter.sharedMesh;
         var bounds = mesh.bounds;
 
@@ -46,13 +51,13 @@ public class MeshGridGenerator : MonoBehaviour
 
         var generateGridJob = new GenerateGridJob
         {
-            meshVertices = meshVertices,
-            triangles = triangles,
-            cellCenters = cellCenters,
-            results = results
+            MeshVertices = meshVertices,
+            Triangles = triangles,
+            CellCenters = cellCenters,
+            Results = results
         };
 
-        JobHandle jobHandle = generateGridJob.Schedule(cellCenters.Length, 32);
+        var jobHandle = generateGridJob.Schedule(cellCenters.Length, 32);
         jobHandle.Complete();
 
         var collection = new GameObject("GridCollection")
@@ -63,7 +68,7 @@ public class MeshGridGenerator : MonoBehaviour
             }
         };
 
-        for (int i = 0; i < cellCenters.Length; i++)
+        for (var i = 0; i < cellCenters.Length; i++)
         {
             if (results[i])
             {
@@ -78,6 +83,7 @@ public class MeshGridGenerator : MonoBehaviour
         meshVertices.Dispose();
         triangles.Dispose();
         results.Dispose();
+        
         stopwatch.Stop();
         var elapsedTime = stopwatch.Elapsed;
         Debug.Log($"Generate time : {elapsedTime}");
@@ -86,26 +92,26 @@ public class MeshGridGenerator : MonoBehaviour
     [BurstCompile]
     private struct GenerateGridJob : IJobParallelFor
     {
-        [ReadOnly] public NativeArray<Vector3> meshVertices;
-        [ReadOnly] public NativeArray<int> triangles;
-        public NativeArray<Vector3> cellCenters;
-        public NativeArray<bool> results;
+        [ReadOnly] public NativeArray<Vector3> MeshVertices;
+        [ReadOnly] public NativeArray<int> Triangles;
+        public NativeArray<Vector3> CellCenters;
+        public NativeArray<bool> Results;
 
         public void Execute(int index)
         {
-            Vector3 cellCenter = cellCenters[index];
-            results[index] = IsPointInsideMesh(cellCenter);
+            var cellCenter = CellCenters[index];
+            Results[index] = IsPointInsideMesh(cellCenter);
         }
 
         private bool IsPointInsideMesh(Vector3 point)
         {
             var ray = new Ray(point, Vector3.down);
             var intersectCount = 0;
-            for (var i = 0; i < triangles.Length; i += 3)
+            for (var i = 0; i < Triangles.Length; i += 3)
             {
-                var v1 = meshVertices[triangles[i]];
-                var v2 = meshVertices[triangles[i + 1]];
-                var v3 = meshVertices[triangles[i + 2]];
+                var v1 = MeshVertices[Triangles[i]];
+                var v2 = MeshVertices[Triangles[i + 1]];
+                var v3 = MeshVertices[Triangles[i + 2]];
 
                 if (RayTriangleIntersection(ray, v1, v2, v3))
                 {
@@ -141,6 +147,6 @@ public class MeshGridGenerator : MonoBehaviour
         sphere.transform.SetParent(parent);
         sphere.transform.position = position;
         sphere.transform.localScale = scale;
-        Destroy(sphere.GetComponent<MeshRenderer>());
+        DestroyImmediate(sphere.GetComponent<MeshRenderer>());
     }
 }
