@@ -1,0 +1,197 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "MeshGridGenerator/1.0.0": {
+        "dependencies": {
+          "Unity.Burst": "0.0.0.0",
+          "UnityEditor": "0.0.0.0",
+          "UnityEngine": "0.0.0.0"
+        },
+        "runtime": {
+          "MeshGridGenerator.dll": {}
+        }
+      },
+      "Unity.Burst/0.0.0.0": {
+        "runtime": {
+          "Unity.Burst.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "UnityEditor/0.0.0.0": {
+        "runtime": {
+          "UnityEditor.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "UnityEngine/0.0.0.0": {
+        "runtime": {
+          "UnityEngine.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "Unity.Cecil/0.10.0.0": {
+        "runtime": {
+          "Unity.Cecil.dll": {
+            "assemblyVersion": "0.10.0.0",
+            "fileVersion": "0.10.0.0"
+          }
+        }
+      },
+      "Bee.BeeDriver2/0.0.0.0": {
+        "runtime": {
+          "Bee.BeeDriver2.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "Bee.BinLog/0.0.0.0": {
+        "runtime": {
+          "Bee.BinLog.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "PlayerBuildProgramLibrary.Data/0.0.0.0": {
+        "runtime": {
+          "PlayerBuildProgramLibrary.Data.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "Bee.TinyProfiler2/0.0.0.0": {
+        "runtime": {
+          "Bee.TinyProfiler2.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "ExCSS.Unity/2.0.6.0": {
+        "runtime": {
+          "ExCSS.Unity.dll": {
+            "assemblyVersion": "2.0.6.0",
+            "fileVersion": "2.0.6.0"
+          }
+        }
+      },
+      "Unity.CompilationPipeline.Common/2022.2.0.1": {
+        "runtime": {
+          "Unity.CompilationPipeline.Common.dll": {
+            "assemblyVersion": "2022.2.0.1",
+            "fileVersion": "2022.2.0.1"
+          }
+        }
+      },
+      "ScriptCompilationBuildProgram.Data/0.0.0.0": {
+        "runtime": {
+          "ScriptCompilationBuildProgram.Data.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "BeeBuildProgramCommon.Data/0.0.0.0": {
+        "runtime": {
+          "BeeBuildProgramCommon.Data.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "System.CodeDom/5.0.0.0": {
+        "runtime": {
+          "System.CodeDom.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.20.51904"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MeshGridGenerator/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Unity.Burst/0.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "UnityEditor/0.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "UnityEngine/0.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Unity.Cecil/0.10.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Bee.BeeDriver2/0.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Bee.BinLog/0.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "PlayerBuildProgramLibrary.Data/0.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Bee.TinyProfiler2/0.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ExCSS.Unity/2.0.6.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Unity.CompilationPipeline.Common/2022.2.0.1": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ScriptCompilationBuildProgram.Data/0.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BeeBuildProgramCommon.Data/0.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "System.CodeDom/5.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
