@@ -1,14 +1,23 @@
+using System;
+using System.Diagnostics;
 using UnityEditor;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 public class MeshGridGenerator : MonoBehaviour
 {
-    public MeshFilter meshFilter; // Reference to the MeshFilter containing the mesh
+    public MeshFilter meshFilter;
     public Vector3 cellSize = new Vector3(0.2f, 0.2f, 0.2f);
+    public string prefabName = "null";
 
     private void Start()
     {
+        var stopwatch = new Stopwatch();
+        stopwatch.Start();
         GenerateGrid();
+        stopwatch.Stop();
+        var elapsedTime = stopwatch.Elapsed;
+        Debug.Log($"Generate time : {elapsedTime}");
     }
 
     private void GenerateGrid()
@@ -53,13 +62,12 @@ public class MeshGridGenerator : MonoBehaviour
             }
         }
 
-        PrefabUtility.SaveAsPrefabAsset(collection, "Assets/Prefabs/collection2.prefab");
+        PrefabUtility.SaveAsPrefabAsset(collection, "Assets/Prefabs/" + prefabName + ".prefab");
         Destroy(collection);
     }
 
     private static bool IsPointInsideMesh(Vector3 point, Mesh mesh)
     {
-        //point = trans.transform.InverseTransformPoint(point);
         var triangles = mesh.triangles;
         var ray = new Ray(point, Vector3.down);
         var intersectCount = 0;
