@@ -8,7 +8,7 @@ Build/
 obj/
 ProjectSettings/
 UserSettings/
-Packages/
+
 *.sln
 
 Temp/
