@@ -1,5 +1,4 @@
 # Grid-Mesh
-Grid the mesh with sphere collider in unity
 
 ## Overview
 This library was developed as a tool for obtaining specific percentages of boolean calculations when working with mesh. The idea involves taking a model's mesh, dividing it based on a specified resolution, and determining whether the center point of each grid is inside the model's mesh. If it is, a collision sphere of a specified size is placed.
