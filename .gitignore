@@ -1,0 +1,12 @@
+
+.idea/.idea.GridSphere/.idea/
+
+*.csproj
+Library/
+Logs/
+Build/
+obj/
+ProjectSettings/
+UserSettings/
+Packages/
+*.sln
