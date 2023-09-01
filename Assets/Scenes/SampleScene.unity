@@ -154,7 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshFilter: {fileID: -5754084199372789682, guid: 6cbe22d8a4aa6c44db190447bb8398de, type: 3}
   cellSize: {x: 0.2, y: 0.2, z: 0.2}
-  prefabName: test2
+  prefabName: test
 --- !u!4 &192169289
 Transform:
   m_ObjectHideFlags: 0

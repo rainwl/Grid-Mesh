@@ -13,3 +13,9 @@ Cell Size: 0.2 0.2 0.2
 ```c++
 Generate time : 00:00:18.3074090
 ```
+###  Accelerated using Job System and Burst
+```c++
+Generate time : 00:00:00.0439782
+```
+Accelerated to `427` times its original speed
+

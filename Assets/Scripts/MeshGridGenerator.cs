@@ -84,7 +84,7 @@ public class MeshGridGenerator : MonoBehaviour
     }
 
     [BurstCompile]
-    struct GenerateGridJob : IJobParallelFor
+    private struct GenerateGridJob : IJobParallelFor
     {
         [ReadOnly] public NativeArray<Vector3> meshVertices;
         [ReadOnly] public NativeArray<int> triangles;
@@ -116,7 +116,7 @@ public class MeshGridGenerator : MonoBehaviour
             return intersectCount % 2 == 1;
         }
 
-        private bool RayTriangleIntersection(Ray ray, Vector3 v1, Vector3 v2, Vector3 v3)
+        private static bool RayTriangleIntersection(Ray ray, Vector3 v1, Vector3 v2, Vector3 v3)
         {
             var e1 = v2 - v1;
             var e2 = v3 - v1;
@@ -135,7 +135,7 @@ public class MeshGridGenerator : MonoBehaviour
         }
     }
 
-    private void CreateSphere(Transform parent, Vector3 position, Vector3 scale)
+    private static void CreateSphere(Transform parent, Vector3 position, Vector3 scale)
     {
         var sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         sphere.transform.SetParent(parent);
