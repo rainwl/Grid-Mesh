@@ -10,3 +10,5 @@ ProjectSettings/
 UserSettings/
 Packages/
 *.sln
+
+Temp/
