@@ -19,8 +19,6 @@ public class MeshGridGenerator : MonoBehaviour
 
     private void Start()
     {
-        var stopwatch = new Stopwatch();
-        stopwatch.Start();
 
         var mesh = meshFilter.sharedMesh;
         var bounds = mesh.bounds;
@@ -84,10 +82,6 @@ public class MeshGridGenerator : MonoBehaviour
         meshVertices.Dispose();
         triangles.Dispose();
         results.Dispose();
-
-        stopwatch.Stop();
-        var elapsedTime = stopwatch.Elapsed;
-        Debug.Log($"Generate time : {elapsedTime}");
     }
 
     [BurstCompile]
